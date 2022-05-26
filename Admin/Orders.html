@@ -1,0 +1,190 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Welcome, Admin Login !!</title>
+
+    <!-------------------------------- FAVICON FILES ----------------------------->
+
+    <link rel="apple-touch-icon" sizes="180x180" href="../Images/apple-touch-icon.png">
+    <link rel="icon" type="image/png" sizes="32x32" href="../Images/favicon-32x32.png">
+    <link rel="icon" type="image/png" sizes="16x16" href="../Images/favicon-16x16.png">
+    <link rel="manifest" href="../Images/site.webmanifest">
+
+
+    <link rel="stylesheet" type="text/css" href="https://cdn.datatables.net/1.10.25/css/jquery.dataTables.css">
+
+    <!-------------------------------- CSS FILES ----------------------------->
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@4.0.0/dist/css/bootstrap.min.css"
+        integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm" crossorigin="anonymous">
+    <script src="https://code.jquery.com/jquery-3.2.1.slim.min.js"
+        integrity="sha384-KJ3o2DKtIkvYIK3UENzmM7KCkRr/rE9/Qpg6aAZGJwFDMVNA/GpGFF93hXpG5KkN"
+        crossorigin="anonymous"></script>
+
+
+    <!----------------------------------- JS FILES ------------------------------>
+    <script src="https://cdn.jsdelivr.net/npm/popper.js@1.12.9/dist/umd/popper.min.js"
+        integrity="sha384-ApNbgh9B+Y1QKtv3Rn7W3mgPxhU9K/ScQsAP7hUibX39j7fakFPskvXusvfa0b4Q"
+        crossorigin="anonymous"></script>
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@4.0.0/dist/js/bootstrap.min.js"
+        integrity="sha384-JZR6Spejh4U02d8jOt6vLEHfe/JQGiRRSQQxSfFWpi1MquVdAyjUar5+76PVCmYl"
+        crossorigin="anonymous"></script>
+
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.10.0/css/all.min.css"
+        integrity="sha512-PgQMlq+nqFLV4ylk1gwUOgm6CtIIXkKwaIHp/PAIWHzig/lKZSEGKEysh0TCVbHJXCLN7WetD8TFecIky75ZfQ=="
+        crossorigin="anonymous" referrerpolicy="no-referrer" />
+
+    <style>
+        @import url('https://fonts.googleapis.com/css2?family=Ubuntu&display=swap');
+
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+            font-family: 'Ubuntu', sans-serif;
+        }
+
+        .main_div {
+            width: 100vw;
+            height: 100vh;
+        }
+
+        .main_div .top_div {
+            width: 100%;
+            background: #3498db;
+            padding: 10px 40px;
+            text-align: center;
+            color: #fff;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+
+        .main_div .bottom_div {
+            width: 100%;
+            height: 90.7%;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+        }
+
+        .main_div .bottom_div .left {
+            width: 18%;
+            height: 100%;
+            background: #fff;
+            padding: 30px;
+        }
+
+        .main_div .bottom_div .left ul li p {
+            margin-bottom: 0 !important;
+        }
+
+        .main_div .bottom_div .left ul li {
+            list-style: none;
+            margin: 40px 0;
+            background: #fff;
+            padding: 15px;
+            box-shadow: rgba(60, 64, 67, 0.3) 0px 1px 2px 0px, rgba(60, 64, 67, 0.15) 0px 2px 6px 2px;
+        }
+
+        .main_div .bottom_div .right {
+            width: 88%;
+            height: 100%;
+            padding: 50px;
+            border-left: 2px solid #000;
+        }
+
+        .main_div .bottom_div .right .operations button {
+            margin: 0px 15px;
+        }
+        .main_div .bottom_div .right  .table_div {
+            width: 1100px;
+            padding: 40px;
+            background: #fff;
+            box-shadow: 0 14px 28px rgba(0, 0, 0, 0.2);
+            margin-bottom: 60px;
+        }
+
+    </style>
+</head>
+
+<body>
+    <div class="main_div">
+        <div class="top_div">
+            <h2>Orders</h2>
+            <i class="fa fa-2x fa-user-circle" aria-hidden="true"></i>
+        </div>
+        <div class="bottom_div">
+            <div class="left">
+                <ul>
+                    <li>
+                        <p> <i class="fa fa-briefcase mr-2" aria-hidden="true"></i> Orders </p>
+                    </li>
+                    <li>
+                        <p><i class="fa fa-shopping-bag mr-2" aria-hidden="true"></i> Products</p>
+                    </li>
+                    <li>
+                        <p><i class="fa fa-sitemap mr-2" aria-hidden="true"></i>Category</p>
+                    </li>
+                    <li>
+                        <p><i class="fa fa-user mr-2" aria-hidden="true"></i>Logout</p>
+                    </li>
+                </ul>
+            </div>
+            <div class="right">
+                <div class="operations">
+                    <button type="button" class="btn btn-secondary">All</button>
+                    <button type="button" class="btn btn-success">Accepted</button>
+                    <button type="button" class="btn btn-danger">Declined</button>
+                    <button type="button" class="btn btn-info">Completed</button>
+                </div>
+                <div class="table_div my-5">
+                    <table id="table_id" class="display">
+                        <thead>
+                            <tr>
+                                <th>Order ID</th>
+                                <th>Date</th>
+                                <th>Status</th>
+                                <th>Action</th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            <tr>
+                                <td>01</td>
+                                <td>23/05/2022</td>
+                                <td> In Progress </td>
+                                <td> <button class="btn-success px-4 py-1">EDIT</button> <button class="ml-3 btn-danger px-4 py-1">DELETE</button> </td>
+                            </tr>
+                            <tr>
+                                <td>02</td>
+                                <td>25/05/2022</td>
+                                <td> Accepted </td>
+                                <td> <button class="btn-success px-4 py-1">EDIT</button> <button class="ml-3 btn-danger px-4 py-1">DELETE</button></td>
+                            </tr>
+                            <tr>
+                                <td>03</td>
+                                <td>26/05/2022</td>
+                                <td> Declined </td>
+                                <td> <button class="btn-success px-4 py-1">EDIT</button><button class="ml-3 btn-danger px-4 py-1">DELETE</button> </td>
+                            </tr>
+                            
+                        </tbody>
+                    </table>
+                </div>
+            </div>
+        </div>
+    </div>
+    <!-- Include Jquery -->
+    <script src="https://code.jquery.com/jquery-3.6.0.js" integrity="sha256-H+K7U5CnXl1h5ywQfKtSj8PCmoN9aaq30gDh27Xc0jk=" crossorigin="anonymous"></script>
+    <script type="text/javascript" charset="utf8" src="https://cdn.datatables.net/1.10.25/js/jquery.dataTables.js"></script>
+    <script>
+        $(document).ready(function () {
+            $('#table_id').DataTable();
+        });
+    </script>
+</body>
+
+</html>
